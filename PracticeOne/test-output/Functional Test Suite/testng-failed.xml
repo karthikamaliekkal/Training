@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Functional Test Suite]">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="tech.kefi.listeners.CustomListeners"/>
+  </listeners>
+  <test thread-count="5" name="Student Registration Page(failed)">
+    <classes>
+      <class name="tech.kefi.testcases.StudRegisPage">
+        <methods>
+          <include name="loadUrl"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- tech.kefi.testcases.StudRegisPage -->
+    </classes>
+  </test> <!-- Student Registration Page(failed) -->
+</suite> <!-- Failed suite [Functional Test Suite] -->

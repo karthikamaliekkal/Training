@@ -1,0 +1,59 @@
+package tech.kefi.listeners;
+
+import java.io.IOException;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+
+import tech.kefi.utilities.TestUtil;
+
+public class CustomListeners implements ITestListener{
+
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailure(ITestResult result) {
+		
+		try {
+			TestUtil.captureScreenshot();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.setProperty("org.uncommons.reportng.escape-output","false");
+		Reporter.log("Test Failed !!!"+"<br>");
+		Reporter.log("<a target=\"_blank\" href="+TestUtil.srcShot+"><img src="+TestUtil.srcShot+" height=150 width=150></img></a>");
+		
+	}
+
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
